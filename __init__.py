@@ -5,6 +5,12 @@ import webbrowser
 import os
 import glob
 import git
+import shutil
+
+import sys
+
+file_dir = os.path.join(os.path.dirname(__file__))
+sys.path.append(file_dir)
 
 from PySide6 import QtCore, QtGui, QtWidgets
 import ui_BlenderAddonManager as ui
@@ -15,16 +21,16 @@ datapath = defaultdict(dict)
 aztoolspath = defaultdict(dict)
 
 datapath["blender"]["addon"] = os.path.expandvars("%USERPROFILE%/GoogleDrive/MyPreferences/Blender/BlenderRoaming/3.4/scripts/addons")
-datapath["blender"]["git"] = "data_git_.csv"
-datapath["blender"]["init"] = "data_init_.csv"
-datapath["blender"]["py"] = "data_py_.csv"
-datapath["blender"]["bak"] = "data_bak_.csv"
-datapath["blender"]["enabled"] = "data_enabled_.csv"
+datapath["blender"]["git"] = file_dir + "\\data_git_.csv"
+datapath["blender"]["init"] = file_dir + "\\data_init_.csv"
+datapath["blender"]["py"] = file_dir + "\\data_py_.csv"
+datapath["blender"]["bak"] = file_dir + "\\data_bak_.csv"
+datapath["blender"]["enabled"] = file_dir + "\\data_enabled_.csv"
 
 
-class BlenderAddonManager(QtWidgets.QWidget):
+class AZBlenderAddonManager(QtWidgets.QWidget):
     def __init__(self, parent=None):
-        super(BlenderAddonManager, self).__init__(parent)
+        super(AZBlenderAddonManager, self).__init__(parent)
         self.ui = ui.Ui_BlenderAddonManager()
         self.ui.setupUi(self)
 
@@ -412,6 +418,6 @@ if __name__ == '__main__':
 
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    bam = BlenderAddonManager()
+    bam = AZBlenderAddonManager()
     bam.show()
     sys.exit(app.exec_())
