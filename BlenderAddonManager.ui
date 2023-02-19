@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BlenderAddonManager</class>
+ <widget class="QWidget" name="BlenderAddonManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1211</width>
+    <height>905</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="frame_9">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_41">
+      <item>
+       <widget class="QTabWidget" name="tabWidget_3">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tab_20">
+         <attribute name="title">
+          <string>Git</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_293">
+          <item>
+           <widget class="QFrame" name="frame_13">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_43">
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Git Addon</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableView" name="tableView_git">
+               <property name="sortingEnabled">
+                <bool>true</bool>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>200</number>
+               </attribute>
+               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                <bool>true</bool>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_1195">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_662">
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="pushButton_pull_gitaddon_selected">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Pull Selected Git Addon</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_pull_gitaddons">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Pull Git Addons</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_21">
+         <attribute name="title">
+          <string>Folder</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_294">
+          <item>
+           <widget class="QFrame" name="frame_38">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_45">
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Folder Addon</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableView" name="tableView_init">
+               <property name="sortingEnabled">
+                <bool>true</bool>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>200</number>
+               </attribute>
+               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                <bool>true</bool>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_22">
+         <attribute name="title">
+          <string>Py</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_295">
+          <item>
+           <widget class="QFrame" name="frame_37">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_44">
+             <item>
+              <widget class="QLabel" name="label_4">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Py Addon</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableView" name="tableView_py">
+               <property name="sortingEnabled">
+                <bool>true</bool>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>200</number>
+               </attribute>
+               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                <bool>true</bool>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_126">
+         <attribute name="title">
+          <string>Bak</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_663">
+          <item>
+           <widget class="QFrame" name="frame_1196">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_741">
+             <item>
+              <widget class="QLabel" name="label_22">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Py Addon</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableView" name="tableView_bak">
+               <property name="sortingEnabled">
+                <bool>true</bool>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>200</number>
+               </attribute>
+               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                <bool>true</bool>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_91">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	background-color: rgb(85, 85, 85);
+	border-radius: 4px;
+	color : white;
+}
+
+QPushButton:hover {
+	background-color:rgb(99, 60, 245);
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_78">
+         <item>
+          <widget class="QPushButton" name="pushButton_search_addons">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Search Addons</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_move_unused_addons">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	background-color: rgb(227, 90, 90);
+	border-radius: 3px;
+}
+
+QPushButton:hover {
+	background-color: rgb(104, 24, 242);
+}</string>
+           </property>
+           <property name="text">
+            <string>Move Unused Addons</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
