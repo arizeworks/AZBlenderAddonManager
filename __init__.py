@@ -1,18 +1,43 @@
 # Standard
-import subprocess
-import csv
-import webbrowser
 import os
-import glob
-import git
-import shutil
-
 import sys
+import glob
+import shutil
+import subprocess
+import webbrowser
+import csv
+
+# pip instally
+try:
+    import git
+    from PySide6 import QtCore, QtGui, QtWidgets
+except ImportError:
+
+    def yes_no_input():
+        choice = input("Run 'pip install requirements.txt'. OK?? [y/N]: ").lower()
+        if choice in ['y', 'ye', 'yes']:
+            return True
+        elif choice in ['n', 'no']:
+            return False
+
+    if yes_no_input():
+        from pip_install_requirements import readRequirements, pip_install
+        modules = readRequirements("requirements.txt")
+        for module in modules:
+            pip_install(module)
+
+        import git
+        from PySide6 import QtCore, QtGui, QtWidgets
+
+    else:
+        print("Please pip install requirements.txt")
+        sys.exit()
+
 
 file_dir = os.path.join(os.path.dirname(__file__))
 sys.path.append(file_dir)
 
-from PySide6 import QtCore, QtGui, QtWidgets
+
 import ui_BlenderAddonManager as ui
 
 
@@ -20,7 +45,7 @@ from collections import defaultdict
 datapath = defaultdict(dict)
 aztoolspath = defaultdict(dict)
 
-datapath["blender"]["addon"] = os.path.expandvars("%USERPROFILE%/GoogleDrive/MyPreferences/Blender/BlenderRoaming/3.4/scripts/addons")
+datapath["blender"]["addon"] = ""
 datapath["blender"]["git"] = file_dir + "\\data_git_.csv"
 datapath["blender"]["init"] = file_dir + "\\data_init_.csv"
 datapath["blender"]["py"] = file_dir + "\\data_py_.csv"
@@ -28,11 +53,20 @@ datapath["blender"]["bak"] = file_dir + "\\data_bak_.csv"
 datapath["blender"]["enabled"] = file_dir + "\\data_enabled_.csv"
 
 
+
 class AZBlenderAddonManager(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super(AZBlenderAddonManager, self).__init__(parent)
         self.ui = ui.Ui_BlenderAddonManager()
         self.ui.setupUi(self)
+
+        if os.path.exists(file_dir + "\\settings.ini"):
+            setting = QtCore.QSettings(file_dir + "\\settings.ini", QtCore.QSettings.IniFormat)
+            self.ui.lineEdit_addon_path.setText(setting.value(self.ui.lineEdit_addon_path.objectName()))
+        else:
+            self.ui.lineEdit_addon_path.setText("%APPDATA%\\Blender Foundation\\Blender\\3.5\\scripts\\addons")
+
+        datapath["blender"]["addon"] = os.path.expandvars(self.ui.lineEdit_addon_path.text())
 
         # Table
         model_git = QtGui.QStandardItemModel()
@@ -82,6 +116,11 @@ class AZBlenderAddonManager(QtWidgets.QWidget):
         self.ui.pushButton_search_addons.clicked.connect(lambda: [searchAddons(), reloadCSV(self)])
         self.ui.pushButton_move_unused_addons.clicked.connect(lambda: [moveUnusedAddons(), searchAddons(), reloadCSV(self)])
 
+    def closeEvent(self, event):
+        setting = QtCore.QSettings(file_dir + "\\settings.ini", QtCore.QSettings.IniFormat)
+        setting.setValue(self.ui.lineEdit_addon_path.objectName(), self.ui.lineEdit_addon_path.text())
+
+
 
 def ViewCSVTable(model, filename):
 
@@ -97,12 +136,13 @@ def ViewCSVTable(model, filename):
                 if ".py" in addon_name:
                     addon_name = addon_name.strip(".py")
 
-                if addon_name in enabled_addons:
-                    for j in range(7):
-                        model.setData(model.index(i, j), QtGui.QBrush(QtGui.QColor("#deffcd")), QtCore.Qt.BackgroundRole)
-                else:
-                    for j in range(7):
-                        model.setData(model.index(i, j), QtGui.QBrush(QtGui.QColor("#ec9093")), QtCore.Qt.BackgroundRole)
+                if not len(enabled_addons) == 0:
+                    if addon_name in enabled_addons:
+                        for j in range(7):
+                            model.setData(model.index(i, j), QtGui.QBrush(QtGui.QColor("#deffcd")), QtCore.Qt.BackgroundRole)
+                    else:
+                        for j in range(7):
+                            model.setData(model.index(i, j), QtGui.QBrush(QtGui.QColor("#ec9093")), QtCore.Qt.BackgroundRole)
             except Exception as e:
                 print(e)
 
@@ -420,4 +460,4 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     bam = AZBlenderAddonManager()
     bam.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

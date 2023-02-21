@@ -5,7 +5,7 @@ import os
 python_dir = os.path.expandvars("%LOCALAPPDATA%/Programs/Python/Python310")
 pyside6_uic = python_dir + "/Scripts/pyside6-uic.exe"
 target_uipy = "ui_BlenderAddonManager.py"
-target_ui = "BlenderAddonManager.py"
+target_ui = "BlenderAddonManager.ui"
 
 
 def UpdateUI():

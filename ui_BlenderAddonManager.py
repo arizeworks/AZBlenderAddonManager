@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QHeaderView,
-    QLabel, QPushButton, QSizePolicy, QTabWidget,
-    QTableView, QVBoxLayout, QWidget)
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QTabWidget, QTableView, QVBoxLayout, QWidget)
 
 class Ui_BlenderAddonManager(object):
     def setupUi(self, BlenderAddonManager):
@@ -32,6 +32,28 @@ class Ui_BlenderAddonManager(object):
         self.frame_9.setFrameShadow(QFrame.Raised)
         self.verticalLayout_41 = QVBoxLayout(self.frame_9)
         self.verticalLayout_41.setObjectName(u"verticalLayout_41")
+        self.frame = QFrame(self.frame_9)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout = QHBoxLayout(self.frame)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.label = QLabel(self.frame)
+        self.label.setObjectName(u"label")
+        font = QFont()
+        font.setBold(True)
+        self.label.setFont(font)
+
+        self.horizontalLayout.addWidget(self.label)
+
+        self.lineEdit_addon_path = QLineEdit(self.frame)
+        self.lineEdit_addon_path.setObjectName(u"lineEdit_addon_path")
+
+        self.horizontalLayout.addWidget(self.lineEdit_addon_path)
+
+
+        self.verticalLayout_41.addWidget(self.frame)
+
         self.tabWidget_3 = QTabWidget(self.frame_9)
         self.tabWidget_3.setObjectName(u"tabWidget_3")
         self.tab_20 = QWidget()
@@ -46,10 +68,10 @@ class Ui_BlenderAddonManager(object):
         self.verticalLayout_43.setObjectName(u"verticalLayout_43")
         self.label_2 = QLabel(self.frame_13)
         self.label_2.setObjectName(u"label_2")
-        font = QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        self.label_2.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(10)
+        font1.setBold(True)
+        self.label_2.setFont(font1)
 
         self.verticalLayout_43.addWidget(self.label_2)
 
@@ -99,7 +121,7 @@ class Ui_BlenderAddonManager(object):
         self.verticalLayout_45.setObjectName(u"verticalLayout_45")
         self.label_3 = QLabel(self.frame_38)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font)
+        self.label_3.setFont(font1)
 
         self.verticalLayout_45.addWidget(self.label_3)
 
@@ -127,7 +149,7 @@ class Ui_BlenderAddonManager(object):
         self.verticalLayout_44.setObjectName(u"verticalLayout_44")
         self.label_4 = QLabel(self.frame_37)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setFont(font)
+        self.label_4.setFont(font1)
 
         self.verticalLayout_44.addWidget(self.label_4)
 
@@ -155,7 +177,7 @@ class Ui_BlenderAddonManager(object):
         self.verticalLayout_741.setObjectName(u"verticalLayout_741")
         self.label_22 = QLabel(self.frame_1196)
         self.label_22.setObjectName(u"label_22")
-        self.label_22.setFont(font)
+        self.label_22.setFont(font1)
 
         self.verticalLayout_741.addWidget(self.label_22)
 
@@ -218,17 +240,19 @@ class Ui_BlenderAddonManager(object):
 
         self.retranslateUi(BlenderAddonManager)
 
-        self.tabWidget_3.setCurrentIndex(0)
+        self.tabWidget_3.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(BlenderAddonManager)
     # setupUi
 
     def retranslateUi(self, BlenderAddonManager):
-        BlenderAddonManager.setWindowTitle(QCoreApplication.translate("BlenderAddonManager", u"Form", None))
+        BlenderAddonManager.setWindowTitle(QCoreApplication.translate("BlenderAddonManager", u"AZ Blender Addon Manager", None))
+        self.label.setText(QCoreApplication.translate("BlenderAddonManager", u"Blender Addon Folder : ", None))
+        self.lineEdit_addon_path.setText(QCoreApplication.translate("BlenderAddonManager", u"%APPDATA%\\Blender Foundation\\Blender\\3.5", None))
         self.label_2.setText(QCoreApplication.translate("BlenderAddonManager", u"Git Addon", None))
         self.pushButton_pull_gitaddon_selected.setText(QCoreApplication.translate("BlenderAddonManager", u"Pull Selected Git Addon", None))
-        self.pushButton_pull_gitaddons.setText(QCoreApplication.translate("BlenderAddonManager", u"Pull Git Addons", None))
+        self.pushButton_pull_gitaddons.setText(QCoreApplication.translate("BlenderAddonManager", u"Pull Alll Git Addons", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_20), QCoreApplication.translate("BlenderAddonManager", u"Git", None))
         self.label_3.setText(QCoreApplication.translate("BlenderAddonManager", u"Folder Addon", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_21), QCoreApplication.translate("BlenderAddonManager", u"Folder", None))

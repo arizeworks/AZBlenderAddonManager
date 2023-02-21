@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>AZ Blender Addon Manager</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -24,9 +24,40 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_41">
       <item>
+       <widget class="QFrame" name="frame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Blender Addon Folder : </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_addon_path">
+           <property name="text">
+            <string>%APPDATA%\Blender Foundation\Blender\3.5</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
        <widget class="QTabWidget" name="tabWidget_3">
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_20">
          <attribute name="title">
@@ -105,7 +136,7 @@
                    </size>
                   </property>
                   <property name="text">
-                   <string>Pull Git Addons</string>
+                   <string>Pull Alll Git Addons</string>
                   </property>
                  </widget>
                 </item>
