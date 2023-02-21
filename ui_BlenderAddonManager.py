@@ -26,12 +26,80 @@ class Ui_BlenderAddonManager(object):
         BlenderAddonManager.resize(1211, 905)
         self.verticalLayout = QVBoxLayout(BlenderAddonManager)
         self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.frameTop = QFrame(BlenderAddonManager)
+        self.frameTop.setObjectName(u"frameTop")
+        self.frameTop.setMinimumSize(QSize(0, 50))
+        self.frameTop.setMaximumSize(QSize(16777215, 50))
+        self.frameTop.setStyleSheet(u"#frameTop{\n"
+"	border: none;\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(226, 123, 13);\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"")
+        self.frameTop.setFrameShape(QFrame.StyledPanel)
+        self.frameTop.setFrameShadow(QFrame.Raised)
+        self.frameTop.setLineWidth(1)
+        self.horizontalLayout_2 = QHBoxLayout(self.frameTop)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.frame_6 = QFrame(self.frameTop)
+        self.frame_6.setObjectName(u"frame_6")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
+        self.frame_6.setSizePolicy(sizePolicy)
+        self.frame_6.setMinimumSize(QSize(50, 0))
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.frame_6)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label_5 = QLabel(self.frame_6)
+        self.label_5.setObjectName(u"label_5")
+        font = QFont()
+        font.setFamilies([u"MS UI Gothic"])
+        font.setPointSize(12)
+        font.setBold(True)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet(u"color: rgb(255, 255, 255);")
+
+        self.verticalLayout_2.addWidget(self.label_5)
+
+
+        self.horizontalLayout_2.addWidget(self.frame_6, 0, Qt.AlignLeft)
+
+        self.frame_5 = QFrame(self.frameTop)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_2.addWidget(self.frame_5)
+
+        self.frame_7 = QFrame(self.frameTop)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_28 = QHBoxLayout(self.frame_7)
+        self.horizontalLayout_28.setSpacing(0)
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.horizontalLayout_28.setContentsMargins(0, 0, 0, 0)
+
+        self.horizontalLayout_2.addWidget(self.frame_7, 0, Qt.AlignRight|Qt.AlignVCenter)
+
+
+        self.verticalLayout.addWidget(self.frameTop)
+
         self.frame_9 = QFrame(BlenderAddonManager)
         self.frame_9.setObjectName(u"frame_9")
         self.frame_9.setFrameShape(QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QFrame.Raised)
         self.verticalLayout_41 = QVBoxLayout(self.frame_9)
         self.verticalLayout_41.setObjectName(u"verticalLayout_41")
+        self.verticalLayout_41.setContentsMargins(0, 0, 0, 0)
         self.frame = QFrame(self.frame_9)
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.StyledPanel)
@@ -40,9 +108,9 @@ class Ui_BlenderAddonManager(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
-        font = QFont()
-        font.setBold(True)
-        self.label.setFont(font)
+        font1 = QFont()
+        font1.setBold(True)
+        self.label.setFont(font1)
 
         self.horizontalLayout.addWidget(self.label)
 
@@ -68,10 +136,10 @@ class Ui_BlenderAddonManager(object):
         self.verticalLayout_43.setObjectName(u"verticalLayout_43")
         self.label_2 = QLabel(self.frame_13)
         self.label_2.setObjectName(u"label_2")
-        font1 = QFont()
-        font1.setPointSize(10)
-        font1.setBold(True)
-        self.label_2.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(10)
+        font2.setBold(True)
+        self.label_2.setFont(font2)
 
         self.verticalLayout_43.addWidget(self.label_2)
 
@@ -121,7 +189,7 @@ class Ui_BlenderAddonManager(object):
         self.verticalLayout_45.setObjectName(u"verticalLayout_45")
         self.label_3 = QLabel(self.frame_38)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font1)
+        self.label_3.setFont(font2)
 
         self.verticalLayout_45.addWidget(self.label_3)
 
@@ -149,7 +217,7 @@ class Ui_BlenderAddonManager(object):
         self.verticalLayout_44.setObjectName(u"verticalLayout_44")
         self.label_4 = QLabel(self.frame_37)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setFont(font1)
+        self.label_4.setFont(font2)
 
         self.verticalLayout_44.addWidget(self.label_4)
 
@@ -177,7 +245,7 @@ class Ui_BlenderAddonManager(object):
         self.verticalLayout_741.setObjectName(u"verticalLayout_741")
         self.label_22 = QLabel(self.frame_1196)
         self.label_22.setObjectName(u"label_22")
-        self.label_22.setFont(font1)
+        self.label_22.setFont(font2)
 
         self.verticalLayout_741.addWidget(self.label_22)
 
@@ -248,6 +316,7 @@ class Ui_BlenderAddonManager(object):
 
     def retranslateUi(self, BlenderAddonManager):
         BlenderAddonManager.setWindowTitle(QCoreApplication.translate("BlenderAddonManager", u"AZ Blender Addon Manager", None))
+        self.label_5.setText(QCoreApplication.translate("BlenderAddonManager", u"AZ Blender Addon Manager", None))
         self.label.setText(QCoreApplication.translate("BlenderAddonManager", u"Blender Addon Folder : ", None))
         self.lineEdit_addon_path.setText(QCoreApplication.translate("BlenderAddonManager", u"%APPDATA%\\Blender Foundation\\Blender\\3.5", None))
         self.label_2.setText(QCoreApplication.translate("BlenderAddonManager", u"Git Addon", None))
@@ -258,9 +327,9 @@ class Ui_BlenderAddonManager(object):
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_21), QCoreApplication.translate("BlenderAddonManager", u"Folder", None))
         self.label_4.setText(QCoreApplication.translate("BlenderAddonManager", u"Py Addon", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_22), QCoreApplication.translate("BlenderAddonManager", u"Py", None))
-        self.label_22.setText(QCoreApplication.translate("BlenderAddonManager", u"Py Addon", None))
+        self.label_22.setText(QCoreApplication.translate("BlenderAddonManager", u"BackUp Addon", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_126), QCoreApplication.translate("BlenderAddonManager", u"Bak", None))
         self.pushButton_search_addons.setText(QCoreApplication.translate("BlenderAddonManager", u"Search Addons", None))
-        self.pushButton_move_unused_addons.setText(QCoreApplication.translate("BlenderAddonManager", u"Move Unused Addons", None))
+        self.pushButton_move_unused_addons.setText(QCoreApplication.translate("BlenderAddonManager", u"Move Unused Addons to Backup Folder", None))
     # retranslateUi
 

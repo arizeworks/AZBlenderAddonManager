@@ -7,7 +7,7 @@ import subprocess
 import webbrowser
 import csv
 
-# pip instally
+# pip install
 try:
     import git
     from PySide6 import QtCore, QtGui, QtWidgets
@@ -33,14 +33,10 @@ except ImportError:
         print("Please pip install requirements.txt")
         sys.exit()
 
-
 file_dir = os.path.join(os.path.dirname(__file__))
 sys.path.append(file_dir)
 
-
 import ui_BlenderAddonManager as ui
-
-
 from collections import defaultdict
 datapath = defaultdict(dict)
 aztoolspath = defaultdict(dict)
@@ -78,26 +74,29 @@ class AZBlenderAddonManager(QtWidgets.QWidget):
         ViewCSVTable(model_init, datapath["blender"]["init"])
         ViewCSVTable(model_py, datapath["blender"]["py"])
         ViewCSVTable(model_bak, datapath["blender"]["bak"])
-
         self.ui.tableView_git.setModel(model_git)
-        self.ui.tableView_git.setColumnWidth(3, 50)
-        self.ui.tableView_git.setColumnWidth(4, 50)
-        self.ui.tableView_git.setColumnWidth(5, 700)
-
         self.ui.tableView_init.setModel(model_init)
-        self.ui.tableView_init.setColumnWidth(3, 50)
-        self.ui.tableView_init.setColumnWidth(4, 50)
-        self.ui.tableView_init.setColumnWidth(5, 700)
-
         self.ui.tableView_py.setModel(model_py)
-        self.ui.tableView_py.setColumnWidth(3, 50)
-        self.ui.tableView_py.setColumnWidth(4, 50)
-        self.ui.tableView_py.setColumnWidth(5, 700)
-
         self.ui.tableView_bak.setModel(model_bak)
-        self.ui.tableView_bak.setColumnWidth(3, 50)
-        self.ui.tableView_bak.setColumnWidth(4, 50)
-        self.ui.tableView_bak.setColumnWidth(5, 700)
+
+        def setTableSettings():
+            self.ui.tableView_git.setColumnWidth(3, 50)
+            self.ui.tableView_git.setColumnWidth(4, 50)
+            self.ui.tableView_git.setColumnWidth(5, 700)
+
+            self.ui.tableView_init.setColumnWidth(3, 50)
+            self.ui.tableView_init.setColumnWidth(4, 50)
+            self.ui.tableView_init.setColumnWidth(5, 700)
+
+            self.ui.tableView_py.setColumnWidth(3, 50)
+            self.ui.tableView_py.setColumnWidth(4, 50)
+            self.ui.tableView_py.setColumnWidth(5, 700)
+
+            self.ui.tableView_bak.setColumnWidth(3, 50)
+            self.ui.tableView_bak.setColumnWidth(4, 50)
+            self.ui.tableView_bak.setColumnWidth(5, 700)
+
+        setTableSettings()
 
         self.ui.tableView_git.doubleClicked.connect(lambda: getTableValueAndSetEvent(self.ui.tableView_git))
         self.ui.tableView_git.doubleClicked.connect(lambda: getTableValueAndSetEvent(self.ui.tableView_init))
@@ -105,7 +104,7 @@ class AZBlenderAddonManager(QtWidgets.QWidget):
         self.ui.tableView_git.doubleClicked.connect(lambda: getTableValueAndSetEvent(self.ui.tableView_bak))
 
         # pushButton
-        def reloadCSV(self):
+        def reloadCSV():
             reloadCSVTable(self.ui.tableView_git, model_git, datapath["blender"]["git"])
             reloadCSVTable(self.ui.tableView_init, model_init, datapath["blender"]["init"])
             reloadCSVTable(self.ui.tableView_py, model_py, datapath["blender"]["py"])
@@ -113,8 +112,8 @@ class AZBlenderAddonManager(QtWidgets.QWidget):
 
         self.ui.pushButton_pull_gitaddon_selected.clicked.connect(lambda: pullGitAddonsSelected(self.ui.tableView_git))
         self.ui.pushButton_pull_gitaddons.clicked.connect(lambda: pullGitAddons())
-        self.ui.pushButton_search_addons.clicked.connect(lambda: [searchAddons(), reloadCSV(self)])
-        self.ui.pushButton_move_unused_addons.clicked.connect(lambda: [moveUnusedAddons(), searchAddons(), reloadCSV(self)])
+        self.ui.pushButton_search_addons.clicked.connect(lambda: [searchAddons(), reloadCSV(), setTableSettings()])
+        self.ui.pushButton_move_unused_addons.clicked.connect(lambda: [moveUnusedAddons(), searchAddons(), reloadCSV(), setTableSettings()])
 
     def closeEvent(self, event):
         setting = QtCore.QSettings(file_dir + "\\settings.ini", QtCore.QSettings.IniFormat)
@@ -313,7 +312,7 @@ def ExportFile(path, dict):
                 row5 = " "
 
             try:  # パス
-                row6 = value[4].replace(r"C:\Users\Daichi", r"%USERPROFILE%")
+                row6 = value[4]
             except Exception as e:
                 print(e)
                 row6 = " "
@@ -455,8 +454,6 @@ def moveUnusedAddons():
 
 
 if __name__ == '__main__':
-
-    import sys
     app = QtWidgets.QApplication(sys.argv)
     bam = AZBlenderAddonManager()
     bam.show()
