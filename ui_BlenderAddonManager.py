@@ -321,7 +321,7 @@ class Ui_BlenderAddonManager(object):
         self.lineEdit_addon_path.setText(QCoreApplication.translate("BlenderAddonManager", u"%APPDATA%\\Blender Foundation\\Blender\\3.5", None))
         self.label_2.setText(QCoreApplication.translate("BlenderAddonManager", u"Git Addon", None))
         self.pushButton_pull_gitaddon_selected.setText(QCoreApplication.translate("BlenderAddonManager", u"Pull Selected Git Addon", None))
-        self.pushButton_pull_gitaddons.setText(QCoreApplication.translate("BlenderAddonManager", u"Pull Alll Git Addons", None))
+        self.pushButton_pull_gitaddons.setText(QCoreApplication.translate("BlenderAddonManager", u"Pull All Git Addons", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_20), QCoreApplication.translate("BlenderAddonManager", u"Git", None))
         self.label_3.setText(QCoreApplication.translate("BlenderAddonManager", u"Folder Addon", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_21), QCoreApplication.translate("BlenderAddonManager", u"Folder", None))

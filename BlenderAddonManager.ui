@@ -89,6 +89,7 @@
             <font>
              <family>MS UI Gothic</family>
              <pointsize>12</pointsize>
+             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -177,6 +178,7 @@
           <widget class="QLabel" name="label">
            <property name="font">
             <font>
+             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -219,6 +221,7 @@
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -277,7 +280,7 @@
                    </size>
                   </property>
                   <property name="text">
-                   <string>Pull Alll Git Addons</string>
+                   <string>Pull All Git Addons</string>
                   </property>
                  </widget>
                 </item>
@@ -308,6 +311,7 @@
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -353,6 +357,7 @@
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -398,6 +403,7 @@
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
