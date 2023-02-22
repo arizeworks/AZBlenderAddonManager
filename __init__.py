@@ -442,15 +442,16 @@ def moveUnusedAddons():
 
     enabled_addons = getEnabledAddons()
 
-    for file in files:
-        addon_name = os.path.basename(file)
+    if len(enabled_addons) != 0:
+        for file in files:
+            addon_name = os.path.basename(file)
 
-        if addon_name != "__bak__":
-            if ".py" in addon_name:
-                addon_name = addon_name.strip(".py")
+            if addon_name != "__bak__":
+                if ".py" in addon_name:
+                    addon_name = addon_name.strip(".py")
 
-            if addon_name not in enabled_addons:
-                shutil.move(file, bakDir + "/" + os.path.basename(file))
+                if addon_name not in enabled_addons:
+                    shutil.move(file, bakDir + "/" + os.path.basename(file))
 
 
 if __name__ == '__main__':
